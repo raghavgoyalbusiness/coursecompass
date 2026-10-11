@@ -1,33 +1,1287 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>CourseCompass Studio</title>
 <style>
-*,*:before,*:after{box-sizing:border-box}:root{--paper:#f7f3ea;--panel:#fffdf8;--ink:#17211b;--muted:#677269;--line:#ded7c8;--line2:#b8ae9b;--mint:#1c8a66;--mint2:#dceee5;--blue:#315da8;--blue2:#dde8fa;--coral:#d45d46;--coral2:#f6ded8;--gold2:#f1e4c3}body{margin:0;min-height:100vh;background:linear-gradient(90deg,rgba(23,33,27,.045) 1px,transparent 1px),linear-gradient(rgba(23,33,27,.035) 1px,transparent 1px),var(--paper);background-size:44px 44px;color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select,textarea{font:inherit}button{color:inherit}.shell{width:min(1180px,calc(100% - 32px));margin:0 auto;padding:24px 0 32px}.topbar{min-height:58px;display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line)}.brand{display:inline-flex;align-items:center;gap:11px;color:var(--ink);text-decoration:none}.mark{width:38px;height:38px;display:grid;place-items:center;border:1px solid var(--ink);background:var(--mint);color:var(--panel);box-shadow:4px 4px 0 var(--ink)}.mark svg{width:21px;height:21px}.brand-name{display:block;font-weight:840;font-size:18px;line-height:1}.brand-kicker{display:block;margin-top:4px;color:var(--muted);font-size:12px}.status{display:inline-flex;align-items:center;gap:8px;min-height:34px;padding:0 12px;border:1px solid var(--line2);background:rgba(255,253,248,.74);color:var(--muted);font-size:13px;white-space:nowrap}.dot{width:8px;height:8px;border-radius:99px;background:var(--mint);box-shadow:0 0 0 4px var(--mint2)}.workspace{display:grid;grid-template-columns:minmax(340px,420px) minmax(0,1fr);gap:20px;padding-top:24px;align-items:start}.planner,.output,.hero{border:1px solid var(--ink);background:var(--panel);box-shadow:0 24px 80px rgba(40,37,29,.12)}.planner{position:sticky;top:20px;max-height:calc(100vh - 40px);overflow:auto}.head{padding:20px 22px 18px;border-bottom:1px solid var(--line)}.eyebrow{margin:0 0 7px;color:var(--mint);font-size:12px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}h1,h2,h3,p{margin:0}h1{max-width:720px;font-size:clamp(34px,5vw,64px);line-height:.98;letter-spacing:0}h2{font-size:25px;line-height:1.08}.subcopy{margin-top:11px;color:var(--muted);font-size:15px;line-height:1.55}.form{padding:20px 22px 22px}.field{display:grid;gap:8px;margin-bottom:17px}label,.field-label{color:var(--muted);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}input,select,textarea{width:100%;min-height:47px;border:1px solid var(--line2);border-radius:0;background:#fffaf1;color:var(--ink);outline:none;padding:12px 13px}textarea{min-height:92px;resize:vertical;line-height:1.45}input:focus,select:focus,textarea:focus{border-color:var(--ink);background:var(--panel);box-shadow:4px 4px 0 var(--gold2)}select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);background-position:calc(100% - 20px) 20px,calc(100% - 14px) 20px;background-size:6px 6px,6px 6px;background-repeat:no-repeat;padding-right:42px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.platforms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.chip{min-height:42px;display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:9px 10px;border:1px solid var(--line2);background:#fffaf1;color:var(--muted);font-size:13px;font-weight:720;cursor:pointer;text-align:center}.chip:hover{transform:translateY(-1px);border-color:var(--ink)}.chip.active{background:var(--ink);color:var(--panel);border-color:var(--ink)}.chip:before{content:"";width:8px;height:8px;border-radius:99px;background:var(--line2)}.chip.active:before{background:var(--mint)}.actions{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;margin-top:18px}.primary,.icon,.text-btn{border:1px solid var(--ink);background:transparent;cursor:pointer}.primary{min-height:50px;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:0 18px;background:var(--coral);color:var(--panel);font-weight:850;box-shadow:4px 4px 0 var(--ink)}.primary:hover{background:#c84f38;transform:translate(-1px,-1px);box-shadow:6px 6px 0 var(--ink)}.primary svg,.icon svg,.text-btn svg,.course-link svg{width:18px;height:18px;flex:0 0 auto}.icon{width:50px;height:50px;display:grid;place-items:center;background:var(--gold2);box-shadow:4px 4px 0 var(--ink)}.hero{min-height:328px;background:linear-gradient(135deg,rgba(49,93,168,.14),transparent 42%),linear-gradient(315deg,rgba(28,138,102,.12),transparent 46%),var(--panel);padding:28px;display:grid;align-content:space-between;gap:36px}.hero-row{display:flex;align-items:flex-end;justify-content:space-between;gap:18px}.route{width:min(260px,38%);border:1px solid var(--ink);background:#fffaf1;box-shadow:6px 6px 0 var(--ink);padding:14px}.route p{color:var(--muted);font-size:12px;line-height:1.45}.route-line{height:88px;margin-bottom:11px;border:1px solid var(--line2);background:radial-gradient(circle at 18% 75%,var(--coral) 0 5px,transparent 6px),radial-gradient(circle at 49% 36%,var(--blue) 0 5px,transparent 6px),radial-gradient(circle at 82% 20%,var(--mint) 0 5px,transparent 6px),linear-gradient(150deg,transparent 0 19%,var(--ink) 20% 21%,transparent 22% 47%,var(--ink) 48% 49%,transparent 50%);background-color:var(--paper)}.stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink);border-left:1px solid var(--ink);background:var(--panel)}.stat{min-height:104px;padding:16px;border-right:1px solid var(--ink);display:grid;align-content:space-between;gap:14px}.stat strong{font-size:26px;line-height:1}.stat span{color:var(--muted);font-size:12px;font-weight:760;letter-spacing:.07em;text-transform:uppercase}.output{margin-top:20px}.tabs{display:flex;border-bottom:1px solid var(--ink);overflow-x:auto;background:#fffaf1}.tab{min-height:47px;padding:0 18px;border:0;border-right:1px solid var(--ink);background:transparent;color:var(--muted);cursor:pointer;font-size:13px;font-weight:820;white-space:nowrap}.tab.active{background:var(--ink);color:var(--panel)}.panel{display:none;padding:22px}.panel.active{display:block}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:17px}.toolbar h2{font-size:22px}.text-btn{min-height:39px;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:0 12px;background:var(--blue2);color:var(--blue);font-size:13px;font-weight:800}.course-list{display:grid;gap:12px}.course{display:grid;grid-template-columns:42px minmax(0,1fr) auto;gap:14px;align-items:start;padding:15px;border:1px solid var(--line2);background:#fffaf1}.rank{width:42px;height:42px;display:grid;place-items:center;border:1px solid var(--ink);background:var(--gold2);font-weight:860}.course h3{margin-bottom:5px;font-size:17px;line-height:1.25}.course p{color:var(--muted);font-size:14px;line-height:1.45}.meta{display:flex;flex-wrap:wrap;gap:7px;margin:11px 0 0}.tag{display:inline-flex;align-items:center;min-height:26px;padding:0 9px;border:1px solid var(--line2);background:var(--panel);color:var(--muted);font-size:12px;font-weight:740}.tag.platform{color:var(--blue);background:var(--blue2);border-color:rgba(49,93,168,.35)}.tag.free{color:var(--mint);background:var(--mint2);border-color:rgba(28,138,102,.32)}.course-link{min-width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--ink);background:var(--ink);color:var(--panel);text-decoration:none}.path-list{display:grid;border-top:1px solid var(--line2)}.path-step{display:grid;grid-template-columns:120px minmax(0,1fr);gap:16px;padding:18px 0;border-bottom:1px solid var(--line2)}.phase{display:inline-flex;width:fit-content;height:32px;align-items:center;padding:0 10px;border:1px solid var(--ink);background:var(--coral2);color:var(--coral);font-size:12px;font-weight:860;text-transform:uppercase}.path-step h3{margin-bottom:5px;font-size:18px}.path-step p{color:var(--muted);line-height:1.5}.skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.skill{min-height:72px;padding:13px;border:1px solid var(--line2);background:#fffaf1;display:grid;align-content:center;gap:5px}.skill span{color:var(--muted);font-size:12px;line-height:1.35}.empty{min-height:220px;display:grid;place-items:center;text-align:center;padding:28px;border:1px dashed var(--line2);background:#fffaf1;color:var(--muted)}footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:22px;color:var(--muted);font-size:12px}@media(max-width:920px){.workspace{grid-template-columns:1fr}.planner{position:static}.route{width:250px}}@media(max-width:680px){.shell{width:min(100% - 22px,1180px);padding-top:14px}.topbar{align-items:flex-start;flex-direction:column;padding-bottom:15px}.workspace{padding-top:14px;gap:14px}.hero{min-height:auto;padding:20px}.hero-row{align-items:flex-start;flex-direction:column}.route{width:100%}.grid2,.platforms,.stats,.skills{grid-template-columns:1fr}.course{grid-template-columns:38px minmax(0,1fr)}.course-link{grid-column:2;width:100%;display:flex;gap:8px}.course-link:before{content:"Search";font-weight:820}.path-step{grid-template-columns:1fr;gap:9px}.toolbar{align-items:flex-start;flex-direction:column}}
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  :root {
+    color-scheme: light;
+    --paper: #f7f3ea;
+    --panel: #fffdf8;
+    --ink: #17211b;
+    --muted: #677269;
+    --line: #ded7c8;
+    --line-strong: #b8ae9b;
+    --mint: #1c8a66;
+    --mint-soft: #dceee5;
+    --blue: #315da8;
+    --blue-soft: #dde8fa;
+    --coral: #d45d46;
+    --coral-soft: #f6ded8;
+    --gold: #a67619;
+    --gold-soft: #f1e4c3;
+    --shadow: 0 24px 80px rgba(40, 37, 29, 0.12);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+      linear-gradient(90deg, rgba(23, 33, 27, 0.045) 1px, transparent 1px),
+      linear-gradient(rgba(23, 33, 27, 0.035) 1px, transparent 1px),
+      var(--paper);
+    background-size: 44px 44px;
+    color: var(--ink);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    letter-spacing: 0;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  button {
+    color: inherit;
+  }
+
+  .shell {
+    width: min(1180px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 24px 0 32px;
+  }
+
+  .topbar {
+    min-height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    color: var(--ink);
+    text-decoration: none;
+    min-width: 0;
+  }
+
+  .brand-mark {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--ink);
+    background: var(--mint);
+    color: var(--panel);
+    box-shadow: 4px 4px 0 var(--ink);
+    flex: 0 0 auto;
+  }
+
+  .brand-mark svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  .brand-copy {
+    min-width: 0;
+  }
+
+  .brand-name {
+    font-weight: 840;
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  .brand-kicker {
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1;
+  }
+
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 34px;
+    padding: 0 12px;
+    border: 1px solid var(--line-strong);
+    background: rgba(255, 253, 248, 0.74);
+    color: var(--muted);
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 99px;
+    background: var(--mint);
+    box-shadow: 0 0 0 4px var(--mint-soft);
+  }
+
+  .workspace {
+    display: grid;
+    grid-template-columns: minmax(340px, 420px) minmax(0, 1fr);
+    gap: 20px;
+    padding-top: 24px;
+    align-items: start;
+  }
+
+  .planner,
+  .output {
+    border: 1px solid var(--ink);
+    background: var(--panel);
+    box-shadow: var(--shadow);
+  }
+
+  .planner {
+    position: sticky;
+    top: 20px;
+    max-height: calc(100vh - 40px);
+    overflow: auto;
+  }
+
+  .section-head {
+    padding: 20px 22px 18px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .eyebrow {
+    margin: 0 0 7px;
+    color: var(--mint);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    margin: 0;
+  }
+
+  h1 {
+    max-width: 720px;
+    font-size: clamp(34px, 5vw, 64px);
+    line-height: 0.98;
+    letter-spacing: 0;
+  }
+
+  h2 {
+    font-size: 25px;
+    line-height: 1.08;
+    letter-spacing: 0;
+  }
+
+  .subcopy {
+    margin-top: 11px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .form-body {
+    padding: 20px 22px 22px;
+  }
+
+  .field {
+    display: grid;
+    gap: 8px;
+    margin-bottom: 17px;
+  }
+
+  label,
+  .field-label {
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    min-height: 47px;
+    border: 1px solid var(--line-strong);
+    border-radius: 0;
+    background: #fffaf1;
+    color: var(--ink);
+    outline: none;
+    padding: 12px 13px;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  }
+
+  textarea {
+    min-height: 92px;
+    resize: vertical;
+    line-height: 1.45;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: #9a9283;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    border-color: var(--ink);
+    background: #fffdf8;
+    box-shadow: 4px 4px 0 var(--gold-soft);
+  }
+
+  select {
+    appearance: none;
+    background-image:
+      linear-gradient(45deg, transparent 50%, var(--ink) 50%),
+      linear-gradient(135deg, var(--ink) 50%, transparent 50%);
+    background-position:
+      calc(100% - 20px) 20px,
+      calc(100% - 14px) 20px;
+    background-size: 6px 6px, 6px 6px;
+    background-repeat: no-repeat;
+    padding-right: 42px;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .platforms {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  .chip {
+    min-height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 9px 10px;
+    border: 1px solid var(--line-strong);
+    background: #fffaf1;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 720;
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+    transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+  }
+
+  .chip:hover {
+    transform: translateY(-1px);
+    border-color: var(--ink);
+  }
+
+  .chip.active {
+    background: var(--ink);
+    color: var(--panel);
+    border-color: var(--ink);
+  }
+
+  .chip::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 99px;
+    background: var(--line-strong);
+  }
+
+  .chip.active::before {
+    background: var(--mint);
+  }
+
+  .actions {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    align-items: center;
+    margin-top: 18px;
+  }
+
+  .primary,
+  .icon-btn,
+  .text-btn {
+    border: 1px solid var(--ink);
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .primary {
+    min-height: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 18px;
+    background: var(--coral);
+    color: #fffdf8;
+    font-weight: 850;
+    box-shadow: 4px 4px 0 var(--ink);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  }
+
+  .primary svg,
+  .icon-btn svg,
+  .text-btn svg,
+  .course-link svg {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 auto;
+  }
+
+  .primary:hover {
+    background: #c84f38;
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 var(--ink);
+  }
+
+  .primary:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--ink);
+  }
+
+  .icon-btn {
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    background: var(--gold-soft);
+    color: var(--ink);
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+
+  .main-title {
+    min-height: 328px;
+    border: 1px solid var(--ink);
+    background:
+      linear-gradient(135deg, rgba(49, 93, 168, 0.14), transparent 42%),
+      linear-gradient(315deg, rgba(28, 138, 102, 0.12), transparent 46%),
+      var(--panel);
+    box-shadow: var(--shadow);
+    padding: 28px;
+    display: grid;
+    align-content: space-between;
+    gap: 36px;
+  }
+
+  .hero-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 18px;
+  }
+
+  .route-card {
+    width: min(260px, 38%);
+    border: 1px solid var(--ink);
+    background: #fffaf1;
+    box-shadow: 6px 6px 0 var(--ink);
+    padding: 14px;
+  }
+
+  .route-card p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .route-line {
+    height: 88px;
+    margin-bottom: 11px;
+    border: 1px solid var(--line-strong);
+    background:
+      radial-gradient(circle at 18% 75%, var(--coral) 0 5px, transparent 6px),
+      radial-gradient(circle at 49% 36%, var(--blue) 0 5px, transparent 6px),
+      radial-gradient(circle at 82% 20%, var(--mint) 0 5px, transparent 6px),
+      linear-gradient(150deg, transparent 0 19%, var(--ink) 20% 21%, transparent 22% 47%, var(--ink) 48% 49%, transparent 50%);
+    background-color: var(--paper);
+  }
+
+  .insights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--ink);
+    border-left: 1px solid var(--ink);
+    background: var(--panel);
+  }
+
+  .insight {
+    min-height: 104px;
+    padding: 16px;
+    border-right: 1px solid var(--ink);
+    display: grid;
+    align-content: space-between;
+    gap: 14px;
+  }
+
+  .insight strong {
+    font-size: 26px;
+    line-height: 1;
+  }
+
+  .insight span {
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 760;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+
+  .output {
+    margin-top: 20px;
+  }
+
+  .tabs {
+    display: flex;
+    border-bottom: 1px solid var(--ink);
+    overflow-x: auto;
+    background: #fffaf1;
+  }
+
+  .tab {
+    min-height: 47px;
+    padding: 0 18px;
+    border: 0;
+    border-right: 1px solid var(--ink);
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 820;
+    white-space: nowrap;
+  }
+
+  .tab.active {
+    background: var(--ink);
+    color: var(--panel);
+  }
+
+  .panel {
+    display: none;
+    padding: 22px;
+  }
+
+  .panel.active {
+    display: block;
+  }
+
+  .results-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 17px;
+  }
+
+  .results-toolbar h2 {
+    font-size: 22px;
+  }
+
+  .text-btn {
+    min-height: 39px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 12px;
+    background: var(--blue-soft);
+    color: var(--blue);
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .course-list {
+    display: grid;
+    gap: 12px;
+  }
+
+  .course {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr) auto;
+    gap: 14px;
+    align-items: start;
+    padding: 15px;
+    border: 1px solid var(--line-strong);
+    background: #fffaf1;
+  }
+
+  .rank {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--ink);
+    background: var(--gold-soft);
+    font-weight: 860;
+  }
+
+  .course h3 {
+    margin-bottom: 5px;
+    font-size: 17px;
+    line-height: 1.25;
+  }
+
+  .course p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin: 11px 0 0;
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    min-height: 26px;
+    padding: 0 9px;
+    border: 1px solid var(--line-strong);
+    background: var(--panel);
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 740;
+  }
+
+  .tag.platform {
+    color: var(--blue);
+    background: var(--blue-soft);
+    border-color: rgba(49, 93, 168, 0.35);
+  }
+
+  .tag.free {
+    color: var(--mint);
+    background: var(--mint-soft);
+    border-color: rgba(28, 138, 102, 0.32);
+  }
+
+  .course-link {
+    min-width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--ink);
+    background: var(--ink);
+    color: var(--panel);
+    text-decoration: none;
+  }
+
+  .path-list {
+    display: grid;
+    gap: 0;
+    border-top: 1px solid var(--line-strong);
+  }
+
+  .path-step {
+    display: grid;
+    grid-template-columns: 120px minmax(0, 1fr);
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line-strong);
+  }
+
+  .phase {
+    display: inline-flex;
+    width: fit-content;
+    height: 32px;
+    align-items: center;
+    padding: 0 10px;
+    border: 1px solid var(--ink);
+    background: var(--coral-soft);
+    color: var(--coral);
+    font-size: 12px;
+    font-weight: 860;
+    text-transform: uppercase;
+  }
+
+  .path-step h3 {
+    margin-bottom: 5px;
+    font-size: 18px;
+  }
+
+  .path-step p {
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 11px;
+  }
+
+  .skill {
+    min-height: 72px;
+    padding: 13px;
+    border: 1px solid var(--line-strong);
+    background: #fffaf1;
+    display: grid;
+    align-content: center;
+    gap: 5px;
+  }
+
+  .skill strong {
+    font-size: 15px;
+  }
+
+  .skill span {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .empty {
+    min-height: 280px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 28px;
+    border: 1px dashed var(--line-strong);
+    background: #fffaf1;
+  }
+
+  .empty svg {
+    width: 42px;
+    height: 42px;
+    color: var(--mint);
+    margin-bottom: 13px;
+  }
+
+  .empty p {
+    max-width: 390px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding-top: 22px;
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+  @media (max-width: 920px) {
+    .workspace {
+      grid-template-columns: 1fr;
+    }
+
+    .planner {
+      position: static;
+    }
+
+    .route-card {
+      width: 250px;
+    }
+  }
+
+  @media (max-width: 680px) {
+    .shell {
+      width: min(100% - 22px, 1180px);
+      padding-top: 14px;
+    }
+
+    .topbar {
+      align-items: flex-start;
+      flex-direction: column;
+      padding-bottom: 15px;
+    }
+
+    .workspace {
+      padding-top: 14px;
+      gap: 14px;
+    }
+
+    .main-title {
+      min-height: auto;
+      padding: 20px;
+    }
+
+    .hero-row {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .route-card {
+      width: 100%;
+    }
+
+    .grid-2,
+    .platforms,
+    .insights,
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .course {
+      grid-template-columns: 38px minmax(0, 1fr);
+    }
+
+    .course-link {
+      grid-column: 2;
+      width: 100%;
+      display: flex;
+      gap: 8px;
+    }
+
+    .course-link::before {
+      content: "Search";
+      font-weight: 820;
+    }
+
+    .path-step {
+      grid-template-columns: 1fr;
+      gap: 9px;
+    }
+
+    .results-toolbar {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
 </style>
 </head>
 <body>
-<main class="shell">
-<nav class="topbar" aria-label="Main"><a class="brand" href="#"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 7h14"/><path d="M7 17h10"/><path d="M4 12h16"/></svg></span><span><span class="brand-name">CourseCompass Studio</span><span class="brand-kicker">A practical map for what to learn next</span></span></a><span class="status"><span class="dot"></span>No API key needed</span></nav>
-<div class="workspace">
-<aside class="planner" aria-label="Course planner"><div class="head"><p class="eyebrow">Build the brief</p><h2>Tell me where you want the path to point.</h2><p class="subcopy">Choose a goal, a pace, and your favorite platforms. The plan updates with course ideas, skills, and a phased route.</p></div><form class="form" id="planner-form"><div class="field"><label for="career">Career or field</label><input id="career" type="text" value="Product Design" placeholder="UX Design, Data Science, Cybersecurity..." autocomplete="off"></div><div class="grid2"><div class="field"><label for="level">Current level</label><select id="level"><option value="beginner">Complete beginner</option><option value="basics" selected>Know the basics</option><option value="intermediate">Intermediate</option><option value="advanced">Advanced</option></select></div><div class="field"><label for="pace">Weekly time</label><select id="pace"><option value="light">2-4 hours</option><option value="steady" selected>5-7 hours</option><option value="intense">8+ hours</option></select></div></div><div class="field"><label for="goal">Learning goal</label><select id="goal"><option value="job" selected>Land a first role</option><option value="switch">Switch careers</option><option value="freelance">Freelance or consult</option><option value="promotion">Get promoted</option><option value="startup">Build a startup</option></select></div><div class="field"><span class="field-label">Platforms</span><div class="platforms" id="platforms"><button class="chip active" type="button" data-platform="Coursera">Coursera</button><button class="chip active" type="button" data-platform="edX">edX</button><button class="chip active" type="button" data-platform="YouTube">YouTube</button><button class="chip active" type="button" data-platform="Udemy">Udemy</button><button class="chip active" type="button" data-platform="LinkedIn Learning">LinkedIn</button><button class="chip" type="button" data-platform="Skillshare">Skillshare</button></div></div><div class="field"><label for="notes">Notes</label><textarea id="notes" placeholder="Portfolio projects, budget limits, job deadlines, learning style...">I learn best by making portfolio projects.</textarea></div><div class="actions"><button class="primary" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>Make My Map</button><button class="icon" type="button" id="shuffle" aria-label="Try a sample field" title="Try a sample field"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 14 4 4-4 4"/><path d="m18 2 4 4-4 4"/><path d="M2 18h1.8a8 8 0 0 0 6.5-3.4l3.4-5.2A8 8 0 0 1 20.2 6H22"/><path d="M2 6h1.8a8 8 0 0 1 6.5 3.4"/></svg></button></div></form></aside>
-<section aria-label="Generated learning plan"><div class="hero"><div class="hero-row"><div><p class="eyebrow">Course pathfinder</p><h1 id="hero-title">A sharper route into Product Design.</h1><p class="subcopy" id="hero-copy">Start with practical foundations, stack visible projects, then tighten your portfolio for a first-role search.</p></div><div class="route" aria-hidden="true"><div class="route-line"></div><p>Foundation, practice, proof, then interviews. Fewer random tabs. More useful momentum.</p></div></div><div class="stats"><div class="stat"><strong id="stat-courses">6</strong><span>Course picks</span></div><div class="stat"><strong id="stat-weeks">10</strong><span>Week route</span></div><div class="stat"><strong id="stat-projects">3</strong><span>Portfolio builds</span></div></div></div><div class="output"><div class="tabs" role="tablist"><button class="tab active" type="button" data-tab="courses" role="tab" aria-selected="true">Courses</button><button class="tab" type="button" data-tab="path" role="tab" aria-selected="false">Path</button><button class="tab" type="button" data-tab="skills" role="tab" aria-selected="false">Skills</button></div><section class="panel active" id="courses-panel" role="tabpanel"><div class="toolbar"><h2 id="courses-heading">Recommended courses</h2><button class="text-btn" type="button" id="copy-plan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg><span class="copy-label">Copy Plan</span></button></div><div class="course-list" id="course-list"></div></section><section class="panel" id="path-panel" role="tabpanel"><div class="toolbar"><h2>Recommended order</h2></div><div class="path-list" id="path-list"></div></section><section class="panel" id="skills-panel" role="tabpanel"><div class="toolbar"><h2>Skills to build</h2></div><div class="skills" id="skills-grid"></div></section></div></section>
-</div><footer><span>Course suggestions are directional. Check price, syllabus, and reviews before enrolling.</span><span>Made as a fresh single-file remix.</span></footer>
-</main>
+  <main class="shell">
+    <nav class="topbar" aria-label="Main">
+      <a class="brand" href="#">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v18" />
+            <path d="M5 7h14" />
+            <path d="M7 17h10" />
+            <path d="M4 12h16" />
+          </svg>
+        </span>
+        <span class="brand-copy">
+          <span class="brand-name">CourseCompass Studio</span>
+          <span class="brand-kicker">A practical map for what to learn next</span>
+        </span>
+      </a>
+      <span class="status-pill"><span class="status-dot"></span>No API key needed</span>
+    </nav>
+
+    <div class="workspace">
+      <aside class="planner" aria-label="Course planner">
+        <div class="section-head">
+          <p class="eyebrow">Build the brief</p>
+          <h2>Tell me where you want the path to point.</h2>
+          <p class="subcopy">Choose a goal, a pace, and your favorite platforms. The plan updates with course ideas, skills, and a phased route.</p>
+        </div>
+
+        <form class="form-body" id="planner-form">
+          <div class="field">
+            <label for="career">Career or field</label>
+            <input id="career" name="career" type="text" value="Product Design" placeholder="UX Design, Data Science, Cybersecurity..." autocomplete="off" />
+          </div>
+
+          <div class="grid-2">
+            <div class="field">
+              <label for="level">Current level</label>
+              <select id="level" name="level">
+                <option value="beginner">Complete beginner</option>
+                <option value="basics" selected>Know the basics</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="pace">Weekly time</label>
+              <select id="pace" name="pace">
+                <option value="light">2-4 hours</option>
+                <option value="steady" selected>5-7 hours</option>
+                <option value="intense">8+ hours</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="goal">Learning goal</label>
+            <select id="goal" name="goal">
+              <option value="job" selected>Land a first role</option>
+              <option value="switch">Switch careers</option>
+              <option value="freelance">Freelance or consult</option>
+              <option value="promotion">Get promoted</option>
+              <option value="startup">Build a startup</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <span class="field-label">Platforms</span>
+            <div class="platforms" id="platforms" aria-label="Platform choices">
+              <button class="chip active" type="button" data-platform="Coursera">Coursera</button>
+              <button class="chip active" type="button" data-platform="edX">edX</button>
+              <button class="chip active" type="button" data-platform="YouTube">YouTube</button>
+              <button class="chip active" type="button" data-platform="Udemy">Udemy</button>
+              <button class="chip active" type="button" data-platform="LinkedIn Learning">LinkedIn</button>
+              <button class="chip" type="button" data-platform="Skillshare">Skillshare</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="constraints">Notes</label>
+            <textarea id="constraints" name="constraints" placeholder="Portfolio projects, budget limits, job deadlines, learning style...">I learn best by making portfolio projects.</textarea>
+          </div>
+
+          <div class="actions">
+            <button class="primary" type="submit">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14" />
+                <path d="m13 6 6 6-6 6" />
+              </svg>
+              Make My Map
+            </button>
+            <button class="icon-btn" type="button" id="shuffle" aria-label="Try a sample field" title="Try a sample field">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m18 14 4 4-4 4" />
+                <path d="m18 2 4 4-4 4" />
+                <path d="M2 18h1.8a8 8 0 0 0 6.5-3.4l3.4-5.2A8 8 0 0 1 20.2 6H22" />
+                <path d="M2 6h1.8a8 8 0 0 1 6.5 3.4" />
+              </svg>
+            </button>
+          </div>
+        </form>
+      </aside>
+
+      <section aria-label="Generated learning plan">
+        <div class="main-title">
+          <div class="hero-row">
+            <div>
+              <p class="eyebrow">Course pathfinder</p>
+              <h1 id="hero-title">A sharper route into Product Design.</h1>
+              <p class="subcopy" id="hero-copy">Start with practical foundations, stack visible projects, then tighten your portfolio for a first-role search.</p>
+            </div>
+            <div class="route-card" aria-hidden="true">
+              <div class="route-line"></div>
+              <p>Foundation, practice, proof, then interviews. Fewer random tabs. More useful momentum.</p>
+            </div>
+          </div>
+
+          <div class="insights" aria-label="Plan stats">
+            <div class="insight">
+              <strong id="stat-courses">6</strong>
+              <span>Course picks</span>
+            </div>
+            <div class="insight">
+              <strong id="stat-weeks">10</strong>
+              <span>Week route</span>
+            </div>
+            <div class="insight">
+              <strong id="stat-projects">3</strong>
+              <span>Portfolio builds</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="output">
+          <div class="tabs" role="tablist" aria-label="Learning plan tabs">
+            <button class="tab active" type="button" data-tab="courses" role="tab" aria-selected="true">Courses</button>
+            <button class="tab" type="button" data-tab="path" role="tab" aria-selected="false">Path</button>
+            <button class="tab" type="button" data-tab="skills" role="tab" aria-selected="false">Skills</button>
+          </div>
+
+          <section class="panel active" id="courses-panel" role="tabpanel">
+            <div class="results-toolbar">
+              <h2 id="courses-heading">Recommended courses</h2>
+              <button class="text-btn" type="button" id="copy-plan">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect width="14" height="14" x="8" y="8" rx="2" />
+                  <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                </svg>
+                <span class="copy-label">Copy Plan</span>
+              </button>
+            </div>
+            <div class="course-list" id="course-list"></div>
+          </section>
+
+          <section class="panel" id="path-panel" role="tabpanel">
+            <div class="results-toolbar">
+              <h2>Recommended order</h2>
+            </div>
+            <div class="path-list" id="path-list"></div>
+          </section>
+
+          <section class="panel" id="skills-panel" role="tabpanel">
+            <div class="results-toolbar">
+              <h2>Skills to build</h2>
+            </div>
+            <div class="skills-grid" id="skills-grid"></div>
+          </section>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <span>Course suggestions are directional. Check price, syllabus, and reviews before enrolling.</span>
+      <span>Made as a fresh single-file remix.</span>
+    </footer>
+  </main>
+
 <script>
-const catalog={design:{keywords:["design","ux","ui","product","figma","research"],title:"Product Design",skills:[["User research","Interview, synthesize, and frame product problems."],["Information architecture","Turn messy needs into clear flows and screens."],["Interaction design","Design states, feedback, and usable behavior."],["Visual systems","Use type, spacing, color, and components with restraint."],["Prototyping","Make clickable proof before anyone writes code."],["Portfolio storytelling","Show decisions, tradeoffs, and measurable outcomes."]],courses:[["Google UX Design Professional Certificate","Coursera","Google","Beginner","6 months",true,"A structured baseline for research, wireframes, prototypes, and portfolio case studies."],["Introduction to User Experience Design","Coursera","Georgia Tech","Beginner","6 weeks",true,"A lighter first pass through UX vocabulary before deeper project work."],["Human-Computer Interaction","edX","Georgia Tech","Intermediate","8 weeks",true,"Good theory for making stronger interaction decisions and defending them clearly."],["Figma UI UX Design Essentials","Udemy","Daniel Walter Scott","Beginner","12 hours",false,"Hands-on Figma practice for turning ideas into polished screens quickly."],["UX Research Methods","LinkedIn Learning","LinkedIn","Intermediate","3 hours",false,"Useful when your portfolio needs stronger discovery and user evidence."],["Design Better Data Tables","YouTube","Mizko","Intermediate","1 hour",true,"A focused practical piece for product screens that need dense information."],["UI Design Bootcamp","Skillshare","Mizko","Beginner","4 hours",false,"A visual craft sprint for improving hierarchy, layout, and presentation."]]},data:{keywords:["data","analytics","science","machine","ai","analyst","python"],title:"Data Science",skills:[["Python analysis","Clean, join, transform, and inspect datasets."],["Statistics","Understand uncertainty, testing, and model assumptions."],["SQL","Pull the right slices from real databases."],["Visualization","Explain patterns with charts people can read."],["Machine learning","Train, validate, and communicate model behavior."],["Business framing","Translate analysis into decisions and tradeoffs."]],courses:[["IBM Data Science Professional Certificate","Coursera","IBM","Beginner","5 months",true,"A broad path across Python, notebooks, SQL, visualization, and machine learning basics."],["CS50's Introduction to Programming with Python","edX","Harvard","Beginner","9 weeks",true,"A solid programming foundation before heavier analytics work."],["Data Analysis with Python","YouTube","freeCodeCamp","Beginner","4 hours",true,"A free practical sprint through pandas, NumPy, and exploratory analysis."],["The Complete SQL Bootcamp","Udemy","Jose Portilla","Beginner","9 hours",false,"SQL fluency is a hiring filter for many analyst and data roles."],["Machine Learning Specialization","Coursera","DeepLearning.AI","Intermediate","3 months",true,"A clearer next step once Python and statistics are comfortable."],["Statistics Foundations","LinkedIn Learning","LinkedIn","Beginner","4 hours",false,"Helps you explain confidence, distributions, and tradeoffs more responsibly."],["Data Visualization with D3.js","YouTube","Curran Kelleher","Advanced","10 hours",true,"Useful if you want your portfolio to include interactive analytical storytelling."]]},cyber:{keywords:["cyber","security","cloud security","soc","infosec","hacking"],title:"Cybersecurity",skills:[["Networking","Know how traffic, ports, DNS, and protocols behave."],["Linux basics","Navigate systems, logs, files, and permissions."],["Threat modeling","Spot likely risks before tools get involved."],["Security monitoring","Read alerts and investigate suspicious behavior."],["Cloud fundamentals","Understand identity, storage, and network controls."],["Incident notes","Document evidence, timelines, and recommendations."]],courses:[["Google Cybersecurity Professional Certificate","Coursera","Google","Beginner","6 months",true,"A job-oriented foundation covering security concepts, Linux, SQL, and SIEM basics."],["Cybersecurity Fundamentals","edX","RIT","Beginner","8 weeks",true,"A structured overview before you specialize in SOC, cloud, or testing."],["Introduction to Cyber Security","YouTube","The Cyber Mentor","Beginner","5 hours",true,"A practical free tour of the field and common learning branches."],["Complete Ethical Hacking Bootcamp","Udemy","Zaid Sabih","Beginner","25 hours",false,"Useful for hands-on lab exposure, provided you pair it with defensive fundamentals."],["Learning Linux Command Line","LinkedIn Learning","LinkedIn","Beginner","2 hours",false,"Linux comfort pays off quickly in labs, logs, and cloud environments."],["AWS Cloud Technical Essentials","Coursera","AWS","Beginner","4 weeks",true,"Cloud context helps you understand modern security responsibilities."],["SOC Analyst Training","YouTube","MyDFIR","Intermediate","8 hours",true,"A focused bridge toward alert triage and incident investigation."]]},business:{keywords:["business","finance","marketing","sales","strategy","banking","consulting"],title:"Business Strategy",skills:[["Market analysis","Size opportunities and understand competitive pressure."],["Financial modeling","Estimate revenue, cost, and operating tradeoffs."],["Customer discovery","Learn what buyers actually value."],["Storytelling","Turn messy research into a clear recommendation."],["Experiment design","Test risky assumptions before scaling."],["Executive communication","Write concise decisions, risks, and next steps."]],courses:[["Business Foundations Specialization","Coursera","Wharton","Beginner","4 months",true,"A broad base across marketing, finance, operations, and strategy."],["Entrepreneurship in Emerging Economies","edX","Harvard","Beginner","6 weeks",true,"Strong for learning how markets, institutions, and constraints shape business ideas."],["Financial Modeling and Valuation","Udemy","365 Careers","Intermediate","12 hours",false,"Practical spreadsheet work for finance, consulting, and startup planning."],["Digital Marketing Foundations","LinkedIn Learning","LinkedIn","Beginner","2 hours",false,"Useful if your path involves growth, customer acquisition, or brand work."],["How to Start a Startup","YouTube","Y Combinator","Beginner","20 hours",true,"A free classic for product, market, fundraising, and founder judgment."],["Strategic Management","Coursera","Copenhagen Business School","Intermediate","5 weeks",true,"Good for moving from business vocabulary to structured choices."],["Storytelling for Leaders","Skillshare","Keith Yamashita","Beginner","1 hour",false,"Sharpens how you present analysis so people can act on it."]]},default:{keywords:[],title:"Career Growth",skills:[["Core foundations","Build the vocabulary and mental models of the field."],["Tool fluency","Practice with the tools real teams expect."],["Project work","Create artifacts that prove you can apply ideas."],["Feedback loops","Review, revise, and sharpen your work with critique."],["Professional writing","Explain your decisions clearly and concisely."],["Portfolio packaging","Turn work into evidence for interviews or clients."]],courses:[["Learning How to Learn","Coursera","Deep Teaching Solutions","Beginner","4 weeks",true,"A strong starting point for making any self-directed learning plan more durable."],["Professional Certificate in Career Essentials","LinkedIn Learning","Microsoft and LinkedIn","Beginner","6 weeks",false,"Builds baseline workplace skills while you gather field-specific proof."],["CS50 for Business Professionals","edX","Harvard","Beginner","6 weeks",true,"Useful technical literacy even if your target role is not engineering-heavy."],["Project Management Full Course","YouTube","Simplilearn","Beginner","8 hours",true,"Helps turn learning into organized deliverables and timelines."],["Productivity Masterclass","Skillshare","Thomas Frank","Beginner","2 hours",false,"Good for building a sustainable learning routine around limited time."],["Become a Better Presenter","Udemy","TJ Walker","Beginner","4 hours",false,"Presentation skill makes portfolio work and interviews land better."],["Career Planning: Your Career, Your Life","Coursera","Macquarie University","Beginner","5 weeks",true,"A reflective path for turning broad ambition into concrete next moves."]]}};
-const samples=["Product Design","Data Science","Cybersecurity","Investment Banking","Growth Marketing","AI Product Management"],form=document.querySelector("#planner-form"),chips=[...document.querySelectorAll(".chip")],tabs=[...document.querySelectorAll(".tab")];let latestPlan=null;
-chips.forEach(chip=>chip.addEventListener("click",()=>{const active=chips.filter(c=>c.classList.contains("active")).length;if(chip.classList.contains("active")&&active===1)return;chip.classList.toggle("active");buildPlan()}));
-tabs.forEach(tab=>tab.addEventListener("click",()=>{tabs.forEach(t=>{t.classList.toggle("active",t===tab);t.setAttribute("aria-selected",t===tab?"true":"false")});document.querySelectorAll(".panel").forEach(p=>p.classList.remove("active"));document.querySelector(`#${tab.dataset.tab}-panel`).classList.add("active")}));
-form.addEventListener("submit",e=>{e.preventDefault();buildPlan(true)});["career","notes"].forEach(id=>document.querySelector(`#${id}`).addEventListener("input",()=>buildPlan()));["level","goal","pace"].forEach(id=>document.querySelector(`#${id}`).addEventListener("change",()=>buildPlan()));
-document.querySelector("#shuffle").addEventListener("click",()=>{const current=document.querySelector("#career").value,next=samples.find(s=>s!==current)||samples[0];samples.push(samples.shift());document.querySelector("#career").value=next;buildPlan(true)});
-document.querySelector("#copy-plan").addEventListener("click",async()=>{if(!latestPlan)return;const label=document.querySelector(".copy-label"),summary=[`CourseCompass Studio plan for ${latestPlan.title}`,"","Courses:",...latestPlan.courses.map((c,i)=>`${i+1}. ${c.name} - ${c.platform} (${c.level}, ${c.duration})`),"","Path:",...latestPlan.path.map((s,i)=>`${i+1}. ${s.title}: ${s.detail}`)].join("\n");try{await navigator.clipboard.writeText(summary);label.textContent="Copied";setTimeout(()=>label.textContent="Copy Plan",1400)}catch{alert(summary)}});
-function pickTrack(field){const text=field.toLowerCase();return Object.values(catalog).find(track=>track.keywords.some(k=>text.includes(k)))||catalog.default}function selectedPlatforms(){return chips.filter(c=>c.classList.contains("active")).map(c=>c.dataset.platform)}function searchUrl(platform,name){const q=encodeURIComponent(name),routes={Coursera:`https://www.coursera.org/search?query=${q}`,edX:`https://www.edx.org/search?q=${q}`,YouTube:`https://www.youtube.com/results?search_query=${q}+course`,Udemy:`https://www.udemy.com/courses/search/?q=${q}`,"LinkedIn Learning":`https://www.linkedin.com/learning/search?keywords=${q}`,Skillshare:`https://www.skillshare.com/search?query=${q}`};return routes[platform]||`https://www.google.com/search?q=${q}+course`}function goalCopy(goal,title){return{job:"Start with practical foundations, stack visible projects, then tighten your portfolio for a first-role search.",switch:`Use familiar strengths as leverage, build proof in ${title}, then make the career switch feel low-risk to employers.`,freelance:"Prioritize offer-ready skills, client-facing examples, and repeatable service packages.",promotion:"Close the skill gaps that make your next level obvious, then document outcomes in business language.",startup:"Learn enough to build, test, and explain a credible first version without wandering through endless theory."}[goal]||"Start with practical foundations, stack visible projects, then tighten your portfolio for a first-role search."}function pacingWeeks(pace){return{light:14,steady:10,intense:7}[pace]||10}function pathFor(plan){const item=plan.goal==="startup"?"prototype":"portfolio piece";return[{phase:"Weeks 1-2",title:"Get the foundations steady",detail:`Use the first two picks to learn the language of ${plan.title}. Keep notes as a decision log, not a textbook.`},{phase:"Weeks 3-5",title:"Practice the core tools",detail:`Move into hands-on courses and produce one small ${item} each week. Favor finished work over perfect work.`},{phase:"Weeks 6-8",title:"Build proof",detail:"Combine two skills into a larger project with a clear problem, process, result, and next-step reflection."},{phase:"Final sprint",title:"Package and apply",detail:"Turn the strongest project into a short case study, update your profile, and send targeted applications or client pitches."}]}
-function buildPlan(scroll=false){const field=document.querySelector("#career").value.trim()||"Career Growth",level=document.querySelector("#level").value,goal=document.querySelector("#goal").value,pace=document.querySelector("#pace").value,track=pickTrack(field),platforms=selectedPlatforms(),courses=track.courses.map(([name,platform,provider,courseLevel,duration,free,reason])=>({name,platform,provider,level:courseLevel,duration,free,reason})).filter(c=>platforms.includes(c.platform)).slice(0,level==="advanced"?5:6),title=track===catalog.default?field:track.title;latestPlan={title,goal,courses,skills:track.skills,path:pathFor({title,goal})};renderPlan(latestPlan,{pace});if(scroll)document.querySelector(".hero").scrollIntoView({behavior:"smooth",block:"start"})}
-function renderPlan(plan,meta){document.querySelector("#hero-title").textContent=`A sharper route into ${plan.title}.`;document.querySelector("#hero-copy").textContent=goalCopy(plan.goal,plan.title);document.querySelector("#courses-heading").textContent=`${plan.title} course picks`;document.querySelector("#stat-courses").textContent=plan.courses.length;document.querySelector("#stat-weeks").textContent=pacingWeeks(meta.pace);document.querySelector("#stat-projects").textContent=plan.goal==="startup"?2:3;document.querySelector("#course-list").innerHTML=plan.courses.length?plan.courses.map((c,i)=>`<article class="course"><div class="rank">${String(i+1).padStart(2,"0")}</div><div><h3>${c.name}</h3><p>${c.reason}</p><div class="meta"><span class="tag platform">${c.platform}</span><span class="tag">${c.provider}</span><span class="tag">${c.level}</span><span class="tag">${c.duration}</span>${c.free?`<span class="tag free">Free audit</span>`:`<span class="tag">Paid</span>`}</div></div><a class="course-link" href="${searchUrl(c.platform,c.name)}" target="_blank" rel="noreferrer" aria-label="Search for ${c.name}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a></article>`).join(""):`<div class="empty"><p>No course matches found for that platform mix. Turn on another platform to broaden the map.</p></div>`;document.querySelector("#path-list").innerHTML=plan.path.map(s=>`<div class="path-step"><span class="phase">${s.phase}</span><div><h3>${s.title}</h3><p>${s.detail}</p></div></div>`).join("");document.querySelector("#skills-grid").innerHTML=plan.skills.map(([skill,detail])=>`<div class="skill"><strong>${skill}</strong><span>${detail}</span></div>`).join("")}
-buildPlan();
+  const catalog = {
+    design: {
+      keywords: ["design", "ux", "ui", "product", "figma", "research"],
+      title: "Product Design",
+      skills: [
+        ["User research", "Interview, synthesize, and frame product problems."],
+        ["Information architecture", "Turn messy needs into clear flows and screens."],
+        ["Interaction design", "Design states, feedback, and usable behavior."],
+        ["Visual systems", "Use type, spacing, color, and components with restraint."],
+        ["Prototyping", "Make clickable proof before anyone writes code."],
+        ["Portfolio storytelling", "Show decisions, tradeoffs, and measurable outcomes."]
+      ],
+      courses: [
+        ["Google UX Design Professional Certificate", "Coursera", "Google", "Beginner", "6 months", true, "A structured baseline for research, wireframes, prototypes, and portfolio case studies."],
+        ["Introduction to User Experience Design", "Coursera", "Georgia Tech", "Beginner", "6 weeks", true, "A lighter first pass through UX vocabulary before deeper project work."],
+        ["Human-Computer Interaction", "edX", "Georgia Tech", "Intermediate", "8 weeks", true, "Good theory for making stronger interaction decisions and defending them clearly."],
+        ["Figma UI UX Design Essentials", "Udemy", "Daniel Walter Scott", "Beginner", "12 hours", false, "Hands-on Figma practice for turning ideas into polished screens quickly."],
+        ["UX Research Methods", "LinkedIn Learning", "LinkedIn", "Intermediate", "3 hours", false, "Useful when your portfolio needs stronger discovery and user evidence."],
+        ["Design Better Data Tables", "YouTube", "Mizko", "Intermediate", "1 hour", true, "A focused practical piece for product screens that need dense information."],
+        ["UI Design Bootcamp", "Skillshare", "Mizko", "Beginner", "4 hours", false, "A visual craft sprint for improving hierarchy, layout, and presentation."]
+      ]
+    },
+    data: {
+      keywords: ["data", "analytics", "science", "machine", "ai", "analyst", "python"],
+      title: "Data Science",
+      skills: [
+        ["Python analysis", "Clean, join, transform, and inspect datasets."],
+        ["Statistics", "Understand uncertainty, testing, and model assumptions."],
+        ["SQL", "Pull the right slices from real databases."],
+        ["Visualization", "Explain patterns with charts people can read."],
+        ["Machine learning", "Train, validate, and communicate model behavior."],
+        ["Business framing", "Translate analysis into decisions and tradeoffs."]
+      ],
+      courses: [
+        ["IBM Data Science Professional Certificate", "Coursera", "IBM", "Beginner", "5 months", true, "A broad path across Python, notebooks, SQL, visualization, and machine learning basics."],
+        ["CS50's Introduction to Programming with Python", "edX", "Harvard", "Beginner", "9 weeks", true, "A solid programming foundation before heavier analytics work."],
+        ["Data Analysis with Python", "YouTube", "freeCodeCamp", "Beginner", "4 hours", true, "A free practical sprint through pandas, NumPy, and exploratory analysis."],
+        ["The Complete SQL Bootcamp", "Udemy", "Jose Portilla", "Beginner", "9 hours", false, "SQL fluency is a hiring filter for many analyst and data roles."],
+        ["Machine Learning Specialization", "Coursera", "DeepLearning.AI", "Intermediate", "3 months", true, "A clearer next step once Python and statistics are comfortable."],
+        ["Statistics Foundations", "LinkedIn Learning", "LinkedIn", "Beginner", "4 hours", false, "Helps you explain confidence, distributions, and tradeoffs more responsibly."],
+        ["Data Visualization with D3.js", "YouTube", "Curran Kelleher", "Advanced", "10 hours", true, "Useful if you want your portfolio to include interactive analytical storytelling."]
+      ]
+    },
+    cyber: {
+      keywords: ["cyber", "security", "cloud security", "soc", "infosec", "hacking"],
+      title: "Cybersecurity",
+      skills: [
+        ["Networking", "Know how traffic, ports, DNS, and protocols behave."],
+        ["Linux basics", "Navigate systems, logs, files, and permissions."],
+        ["Threat modeling", "Spot likely risks before tools get involved."],
+        ["Security monitoring", "Read alerts and investigate suspicious behavior."],
+        ["Cloud fundamentals", "Understand identity, storage, and network controls."],
+        ["Incident notes", "Document evidence, timelines, and recommendations."]
+      ],
+      courses: [
+        ["Google Cybersecurity Professional Certificate", "Coursera", "Google", "Beginner", "6 months", true, "A job-oriented foundation covering security concepts, Linux, SQL, and SIEM basics."],
+        ["Cybersecurity Fundamentals", "edX", "RIT", "Beginner", "8 weeks", true, "A structured overview before you specialize in SOC, cloud, or testing."],
+        ["Introduction to Cyber Security", "YouTube", "The Cyber Mentor", "Beginner", "5 hours", true, "A practical free tour of the field and common learning branches."],
+        ["Complete Ethical Hacking Bootcamp", "Udemy", "Zaid Sabih", "Beginner", "25 hours", false, "Useful for hands-on lab exposure, provided you pair it with defensive fundamentals."],
+        ["Learning Linux Command Line", "LinkedIn Learning", "LinkedIn", "Beginner", "2 hours", false, "Linux comfort pays off quickly in labs, logs, and cloud environments."],
+        ["AWS Cloud Technical Essentials", "Coursera", "AWS", "Beginner", "4 weeks", true, "Cloud context helps you understand modern security responsibilities."],
+        ["SOC Analyst Training", "YouTube", "MyDFIR", "Intermediate", "8 hours", true, "A focused bridge toward alert triage and incident investigation."]
+      ]
+    },
+    business: {
+      keywords: ["business", "finance", "marketing", "sales", "strategy", "banking", "consulting"],
+      title: "Business Strategy",
+      skills: [
+        ["Market analysis", "Size opportunities and understand competitive pressure."],
+        ["Financial modeling", "Estimate revenue, cost, and operating tradeoffs."],
+        ["Customer discovery", "Learn what buyers actually value."],
+        ["Storytelling", "Turn messy research into a clear recommendation."],
+        ["Experiment design", "Test risky assumptions before scaling."],
+        ["Executive communication", "Write concise decisions, risks, and next steps."]
+      ],
+      courses: [
+        ["Business Foundations Specialization", "Coursera", "Wharton", "Beginner", "4 months", true, "A broad base across marketing, finance, operations, and strategy."],
+        ["Entrepreneurship in Emerging Economies", "edX", "Harvard", "Beginner", "6 weeks", true, "Strong for learning how markets, institutions, and constraints shape business ideas."],
+        ["Financial Modeling and Valuation", "Udemy", "365 Careers", "Intermediate", "12 hours", false, "Practical spreadsheet work for finance, consulting, and startup planning."],
+        ["Digital Marketing Foundations", "LinkedIn Learning", "LinkedIn", "Beginner", "2 hours", false, "Useful if your path involves growth, customer acquisition, or brand work."],
+        ["How to Start a Startup", "YouTube", "Y Combinator", "Beginner", "20 hours", true, "A free classic for product, market, fundraising, and founder judgment."],
+        ["Strategic Management", "Coursera", "Copenhagen Business School", "Intermediate", "5 weeks", true, "Good for moving from business vocabulary to structured choices."],
+        ["Storytelling for Leaders", "Skillshare", "Keith Yamashita", "Beginner", "1 hour", false, "Sharpens how you present analysis so people can act on it."]
+      ]
+    },
+    default: {
+      keywords: [],
+      title: "Career Growth",
+      skills: [
+        ["Core foundations", "Build the vocabulary and mental models of the field."],
+        ["Tool fluency", "Practice with the tools real teams expect."],
+        ["Project work", "Create artifacts that prove you can apply ideas."],
+        ["Feedback loops", "Review, revise, and sharpen your work with critique."],
+        ["Professional writing", "Explain your decisions clearly and concisely."],
+        ["Portfolio packaging", "Turn work into evidence for interviews or clients."]
+      ],
+      courses: [
+        ["Learning How to Learn", "Coursera", "Deep Teaching Solutions", "Beginner", "4 weeks", true, "A strong starting point for making any self-directed learning plan more durable."],
+        ["Professional Certificate in Career Essentials", "LinkedIn Learning", "Microsoft and LinkedIn", "Beginner", "6 weeks", false, "Builds baseline workplace skills while you gather field-specific proof."],
+        ["CS50 for Business Professionals", "edX", "Harvard", "Beginner", "6 weeks", true, "Useful technical literacy even if your target role is not engineering-heavy."],
+        ["Project Management Full Course", "YouTube", "Simplilearn", "Beginner", "8 hours", true, "Helps turn learning into organized deliverables and timelines."],
+        ["Productivity Masterclass", "Skillshare", "Thomas Frank", "Beginner", "2 hours", false, "Good for building a sustainable learning routine around limited time."],
+        ["Become a Better Presenter", "Udemy", "TJ Walker", "Beginner", "4 hours", false, "Presentation skill makes portfolio work and interviews land better."],
+        ["Career Planning: Your Career, Your Life", "Coursera", "Macquarie University", "Beginner", "5 weeks", true, "A reflective path for turning broad ambition into concrete next moves."]
+      ]
+    }
+  };
+
+  const samples = ["Product Design", "Data Science", "Cybersecurity", "Investment Banking", "Growth Marketing", "AI Product Management"];
+  const form = document.querySelector("#planner-form");
+  const platformButtons = [...document.querySelectorAll(".chip")];
+  const tabs = [...document.querySelectorAll(".tab")];
+  let latestPlan = null;
+
+  platformButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const activeCount = platformButtons.filter((item) => item.classList.contains("active")).length;
+      if (button.classList.contains("active") && activeCount === 1) return;
+      button.classList.toggle("active");
+      buildPlan();
+    });
+  });
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      tabs.forEach((item) => {
+        item.classList.toggle("active", item === tab);
+        item.setAttribute("aria-selected", item === tab ? "true" : "false");
+      });
+      document.querySelectorAll(".panel").forEach((panel) => panel.classList.remove("active"));
+      document.querySelector(`#${tab.dataset.tab}-panel`).classList.add("active");
+    });
+  });
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    buildPlan(true);
+  });
+
+  ["career", "constraints"].forEach((id) => {
+    document.querySelector(`#${id}`).addEventListener("input", () => buildPlan());
+  });
+
+  ["level", "goal", "pace"].forEach((id) => {
+    document.querySelector(`#${id}`).addEventListener("change", () => buildPlan());
+  });
+
+  document.querySelector("#shuffle").addEventListener("click", () => {
+    const current = document.querySelector("#career").value;
+    const next = samples.find((sample) => sample !== current) || samples[0];
+    samples.push(samples.shift());
+    document.querySelector("#career").value = next;
+    buildPlan(true);
+  });
+
+  document.querySelector("#copy-plan").addEventListener("click", async () => {
+    if (!latestPlan) return;
+    const copyButton = document.querySelector("#copy-plan");
+    const copyLabel = copyButton.querySelector(".copy-label");
+    const summary = [
+      `CourseCompass Studio plan for ${latestPlan.title}`,
+      "",
+      "Courses:",
+      ...latestPlan.courses.map((course, index) => `${index + 1}. ${course.name} - ${course.platform} (${course.level}, ${course.duration})`),
+      "",
+      "Path:",
+      ...latestPlan.path.map((step, index) => `${index + 1}. ${step.title}: ${step.detail}`)
+    ].join("\n");
+
+    try {
+      await navigator.clipboard.writeText(summary);
+      copyLabel.textContent = "Copied";
+      window.setTimeout(() => {
+        copyLabel.textContent = "Copy Plan";
+      }, 1400);
+    } catch {
+      alert(summary);
+    }
+  });
+
+  function pickTrack(field) {
+    const normalized = field.toLowerCase();
+    return Object.values(catalog).find((track) => track.keywords.some((keyword) => normalized.includes(keyword))) || catalog.default;
+  }
+
+  function selectedPlatforms() {
+    return platformButtons.filter((button) => button.classList.contains("active")).map((button) => button.dataset.platform);
+  }
+
+  function searchUrl(platform, name) {
+    const q = encodeURIComponent(name);
+    const routes = {
+      Coursera: `https://www.coursera.org/search?query=${q}`,
+      edX: `https://www.edx.org/search?q=${q}`,
+      YouTube: `https://www.youtube.com/results?search_query=${q}+course`,
+      Udemy: `https://www.udemy.com/courses/search/?q=${q}`,
+      "LinkedIn Learning": `https://www.linkedin.com/learning/search?keywords=${q}`,
+      Skillshare: `https://www.skillshare.com/search?query=${q}`
+    };
+    return routes[platform] || `https://www.google.com/search?q=${q}+course`;
+  }
+
+  function goalCopy(goal, title) {
+    const lines = {
+      job: `Start with practical foundations, stack visible projects, then tighten your portfolio for a first-role search.`,
+      switch: `Use familiar strengths as leverage, build proof in ${title}, then make the career switch feel low-risk to employers.`,
+      freelance: `Prioritize offer-ready skills, client-facing examples, and repeatable service packages.`,
+      promotion: `Close the skill gaps that make your next level obvious, then document outcomes in business language.`,
+      startup: `Learn enough to build, test, and explain a credible first version without wandering through endless theory.`
+    };
+    return lines[goal] || lines.job;
+  }
+
+  function pacingWeeks(pace) {
+    return { light: 14, steady: 10, intense: 7 }[pace] || 10;
+  }
+
+  function pathFor(plan) {
+    const portfolioWord = plan.goal === "startup" ? "prototype" : "portfolio piece";
+    return [
+      {
+        phase: "Weeks 1-2",
+        title: "Get the foundations steady",
+        detail: `Use the first two picks to learn the language of ${plan.title}. Keep notes as a decision log, not a textbook.`
+      },
+      {
+        phase: "Weeks 3-5",
+        title: "Practice the core tools",
+        detail: `Move into hands-on courses and produce one small ${portfolioWord} each week. Favor finished work over perfect work.`
+      },
+      {
+        phase: "Weeks 6-8",
+        title: "Build proof",
+        detail: `Combine two skills into a larger project with a clear problem, process, result, and next-step reflection.`
+      },
+      {
+        phase: "Final sprint",
+        title: "Package and apply",
+        detail: `Turn the strongest project into a short case study, update your profile, and send targeted applications or client pitches.`
+      }
+    ];
+  }
+
+  function buildPlan(scrollToResults = false) {
+    const field = document.querySelector("#career").value.trim() || "Career Growth";
+    const level = document.querySelector("#level").value;
+    const goal = document.querySelector("#goal").value;
+    const pace = document.querySelector("#pace").value;
+    const track = pickTrack(field);
+    const platforms = selectedPlatforms();
+    const filtered = track.courses
+      .map(([name, platform, provider, courseLevel, duration, free, reason]) => ({ name, platform, provider, level: courseLevel, duration, free, reason }))
+      .filter((course) => platforms.includes(course.platform));
+    const courses = filtered.slice(0, level === "advanced" ? 5 : 6);
+    const title = track === catalog.default ? field : track.title;
+
+    latestPlan = {
+      title,
+      goal,
+      courses,
+      skills: track.skills,
+      path: pathFor({ title, goal })
+    };
+
+    renderPlan(latestPlan, { field, pace, platforms });
+
+    if (scrollToResults) {
+      document.querySelector(".main-title").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
+  function renderPlan(plan, meta) {
+    document.querySelector("#hero-title").textContent = `A sharper route into ${plan.title}.`;
+    document.querySelector("#hero-copy").textContent = goalCopy(plan.goal, plan.title);
+    document.querySelector("#courses-heading").textContent = `${plan.title} course picks`;
+    document.querySelector("#stat-courses").textContent = plan.courses.length;
+    document.querySelector("#stat-weeks").textContent = pacingWeeks(meta.pace);
+    document.querySelector("#stat-projects").textContent = plan.goal === "startup" ? 2 : 3;
+
+    const courseList = document.querySelector("#course-list");
+    courseList.innerHTML = plan.courses.length ? plan.courses.map((course, index) => `
+      <article class="course">
+        <div class="rank">${String(index + 1).padStart(2, "0")}</div>
+        <div>
+          <h3>${course.name}</h3>
+          <p>${course.reason}</p>
+          <div class="meta-row">
+            <span class="tag platform">${course.platform}</span>
+            <span class="tag">${course.provider}</span>
+            <span class="tag">${course.level}</span>
+            <span class="tag">${course.duration}</span>
+            ${course.free ? `<span class="tag free">Free audit</span>` : `<span class="tag">Paid</span>`}
+          </div>
+        </div>
+        <a class="course-link" href="${searchUrl(course.platform, course.name)}" target="_blank" rel="noreferrer" aria-label="Search for ${course.name}">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M7 17 17 7" />
+            <path d="M7 7h10v10" />
+          </svg>
+        </a>
+      </article>
+    `).join("") : `
+      <div class="empty">
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.3-4.3" />
+          </svg>
+          <p>No course matches found for that platform mix. Turn on another platform to broaden the map.</p>
+        </div>
+      </div>
+    `;
+
+    document.querySelector("#path-list").innerHTML = plan.path.map((step) => `
+      <div class="path-step">
+        <span class="phase">${step.phase}</span>
+        <div>
+          <h3>${step.title}</h3>
+          <p>${step.detail}</p>
+        </div>
+      </div>
+    `).join("");
+
+    document.querySelector("#skills-grid").innerHTML = plan.skills.map(([skill, detail]) => `
+      <div class="skill">
+        <strong>${skill}</strong>
+        <span>${detail}</span>
+      </div>
+    `).join("");
+  }
+
+  buildPlan();
 </script>
 </body>
 </html>
